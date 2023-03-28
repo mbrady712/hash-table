@@ -8,8 +8,22 @@ Purpose: This program creates a hash table that implements separate chaining.
 
 //Public methods
 
+HashTable::HashTable(){
+    count = 0;
+    for (int i = 0; i < HASHTABLESIZE; i++) {
+        hashtable[i] = 0;
+    }
+}
+
+HashTable::~HashTable(){
+
+}
+
 bool HashTable::insertEntry(int id, string* Data){
-    return true;
+    bool inserted = false;
+
+
+    return inserted;
 }
 
 string HashTable::getData(int id){
