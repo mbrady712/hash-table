@@ -8,21 +8,17 @@ Purpose: This program creates a hash table that implements separate chaining.
 
 //Public methods
 
-HashTable::HashTable(){
-    count = 0;
-    for (int i = 0; i < HASHTABLESIZE; i++) {
-        hashtable[i] = 0;
-    }
-}
-
-HashTable::~HashTable(){
-
-}
-
-bool HashTable::insertEntry(int id, string* Data){
+bool HashTable::insertEntry(int id, string* data){
     bool inserted = false;
 
-
+    //Check if id is positive int greater than 0 and that string is not empty
+    if(id > 0 && *data != ""){
+        //Determine index
+        int index = hash(id);
+        //Put list into array
+        hashtable[index].addNode(id, data);
+        inserted = true;
+    }
     return inserted;
 }
 
@@ -39,7 +35,10 @@ int HashTable::getCount(){
 }
 
 void HashTable::printTable(){
-
+    for(int i = 0; i < HASHTABLESIZE; i++){
+        std::cout << "Entry" << i + 1 << ": "; 
+        hashtable[i].printList();
+    }
 }
 
 //Private methods
