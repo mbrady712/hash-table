@@ -24,7 +24,9 @@ string HashTable::getData(int id){
 }
 
 bool HashTable::removeEntry(int id){
-    return true;
+    bool removed = false;
+    removed = hashtable[hash(id)].deleteNode(id);
+    return removed;
 }
 
 int HashTable::getCount(){
