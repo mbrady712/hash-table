@@ -11,6 +11,7 @@ Purpose: This program creates a hash table that implements separate chaining.
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <string>       /* string */
+#include "hashtable.h"
 
 #define BUFFERSIZE 8
 #define MAXID 100
