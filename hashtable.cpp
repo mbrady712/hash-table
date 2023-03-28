@@ -18,7 +18,9 @@ bool HashTable::insertEntry(int id, string* data){
 }
 
 string HashTable::getData(int id){
-    return "hello";
+    Data data;
+    hashtable[hash(id)].getNode(id, &data);
+    return data.data;
 }
 
 bool HashTable::removeEntry(int id){
