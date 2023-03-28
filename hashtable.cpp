@@ -10,13 +10,9 @@ Purpose: This program creates a hash table that implements separate chaining.
 
 bool HashTable::insertEntry(int id, string* data){
     bool inserted = false;
-
     //Check if id is positive int greater than 0 and that string is not empty
     if(id > 0 && *data != ""){
-        //Determine index
-        int index = hash(id);
-        //Put list into array
-        hashtable[index].addNode(id, data);
+        hashtable[hash(id)].addNode(id, data);
         inserted = true;
     }
     return inserted;
