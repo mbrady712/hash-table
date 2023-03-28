@@ -31,5 +31,5 @@ void HashTable::printTable(){
 //Private methods
 
 int HashTable::hash(int id){
-    return 1;
+    return id % HASHTABLESIZE;
 }

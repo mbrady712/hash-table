@@ -6,6 +6,7 @@ Purpose: This program creates a hash table that implements separate chaining.
 
 #ifndef HASH_TABLE
 #define HASH_TABLE
+#define HASHTABLESIZE 15
 
 #include "data.h"
 #include "linkedlist.h"
@@ -22,7 +23,7 @@ public:
 
 private:
     int hash(int);
-    
+
 };
 
 #endif //HASH_TABLE
