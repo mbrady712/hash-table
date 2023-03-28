@@ -15,6 +15,8 @@ Purpose: This program creates a hash table that implements separate chaining.
 class HashTable {
 
 public:
+    HashTable();
+
     bool insertEntry(int, string*);
     string getData(int);
     bool removeEntry(int);

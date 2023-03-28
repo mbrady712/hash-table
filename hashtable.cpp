@@ -8,11 +8,18 @@ Purpose: This program creates a hash table that implements separate chaining.
 
 //Public methods
 
+HashTable::HashTable(){
+    count = 0;
+}
+
 bool HashTable::insertEntry(int id, string* data){
     bool inserted = false;
     //Check if id is positive int greater than 0 and that string is not empty
     if(id > 0 && *data != ""){
         inserted = hashtable[hash(id)].addNode(id, data);
+        if(inserted){
+            count++;
+        }
     }
     return inserted;
 }
@@ -26,11 +33,14 @@ string HashTable::getData(int id){
 bool HashTable::removeEntry(int id){
     bool removed = false;
     removed = hashtable[hash(id)].deleteNode(id);
+    if(removed){
+        count--;
+    }
     return removed;
 }
 
 int HashTable::getCount(){
-    return 1;
+    return count;
 }
 
 void HashTable::printTable(){
