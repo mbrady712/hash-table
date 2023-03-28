@@ -12,8 +12,7 @@ bool HashTable::insertEntry(int id, string* data){
     bool inserted = false;
     //Check if id is positive int greater than 0 and that string is not empty
     if(id > 0 && *data != ""){
-        hashtable[hash(id)].addNode(id, data);
-        inserted = true;
+        inserted = hashtable[hash(id)].addNode(id, data);
     }
     return inserted;
 }
