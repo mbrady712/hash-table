@@ -91,9 +91,11 @@ int main() {
 
     //Test getData() on every element when table is full
 
-    cout << "TESTING PART 3: RETRIEVING EVERY PIECE OF TEST DATA FROM THE TABLE" << endl;
+    cout << "TESTING PART 3: RETRIEVING TEST DATA FROM THE TABLE" << endl;
 
-    cout << "Getting test data from table (" << testdatasize << " entries)..."<< endl;
+    //Retrieving all test data
+
+    cout << "Getting all test data from table (" << testdatasize << " entries)..."<< endl;
     for (int i = 0; i < testdatasize; i++) {
         string temp = table.getData(ids[i]);
         if(temp == ""){
@@ -101,6 +103,16 @@ int main() {
         }else{
             cout << "Success: data with id of " << ids[i] << " found and has string " << temp << endl;
         }
+    }
+    cout << endl;
+
+    //Attempt to retrieve non-existent ID
+
+    cout << "Attempting to retrieve a non-existent test data with id of " << MAXID + 1 << " from the table..." << endl;
+    if (table.getData(MAXID + 1) == "") {
+        cout << "Failed: data with id of " << MAXID + 1 << " is not in the table." << endl;
+    }else{
+        cout << "Success: data with id of " << MAXID + 1 << " found and has string " << table.getData(MAXID + 1) << endl;
     }
     cout << endl;
 
