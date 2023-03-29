@@ -55,7 +55,7 @@ int main() {
     
     // show it is empty by calling getCount and printTable
 
-    cout << "Table starts empty." << endl;
+    cout << "TESTING PART 1: CALLING GETCOUNT() AND PRINTtABLE() ON EMPTY TABLE" << endl;
 
     cout << "Result of getCount(): " << table.getCount() << endl;
 
@@ -66,6 +66,8 @@ int main() {
     cout << endl;
 
     // try and put ALL the test data into the table and show what happens
+
+    cout << "TESTING PART 2: PUTTING ALL TEST DATA INTO THE TABLE" << endl;
 
     cout << "Filling table with all of test data (" << testdatasize << " entries)..."<< endl;
     for (int i = 0; i < testdatasize; i++) {
@@ -88,6 +90,9 @@ int main() {
     // is robust and can handle all use cases.
 
     //Test getData() on every element when table is full
+
+    cout << "TESTING PART 3: RETRIEVING EVERY PIECE OF TEST DATA FROM THE TABLE" << endl;
+
     cout << "Getting test data from table (" << testdatasize << " entries)..."<< endl;
     for (int i = 0; i < testdatasize; i++) {
         string temp = table.getData(ids[i]);
@@ -100,6 +105,8 @@ int main() {
     cout << endl;
 
     //Remove the first, middle, and last three of the test data ids and one non-existent id
+
+    cout << "TESTING PART 4: THOROUGHLY TESTING REMOVEENTRY()" << endl;
 
     //First
 
@@ -192,7 +199,7 @@ int main() {
     because they change the contents of the table and should be tested more rigorously.
     */
 
-    cout << "Testing random operations" << endl;
+    cout << "TESTING PART 5: RANDOM OPERATIONS" << endl;
 
     int randIndex = 0;
     cout << "Filling table with random selections from test data..." << endl;
@@ -213,11 +220,12 @@ int main() {
             case 1:
             case 2:
                 //insertEntry()
-                cout << "Result of insertEntry(): " << endl;
+                cout << "Random Operation " << i + 1 << ":" << endl;
+                cout << "Result of insertEntry() attempting to insert test data with id of " << ids[randIndex] << ":" << endl;
                 if (table.insertEntry(ids[randIndex], &strs[randIndex])) {
                     cout << "Success: " << ids[randIndex] << "entered into table" << endl;
                 } else {
-                    cout << "Failed: " << ids[randIndex] << " not etnered" << endl;
+                    cout << "Failed: " << ids[randIndex] << " not entered" << endl;
                 }
                 cout << "Observe the change with result of printTable(): " << endl;
                 table.printTable();
@@ -225,7 +233,8 @@ int main() {
             case 3:
             case 4:
                 //removeEntry()
-                cout << "Result of removeEntry(): " << endl;
+                cout << "Random Operation " << i + 1 << ":" << endl;
+                cout << "Result of removeEntry() attempting to remove test data with id of " << ids[randIndex] << ":" << endl;
                 if (table.removeEntry(ids[randIndex])) {
                     cout << "Success: " << ids[randIndex] << " removed" << endl;
                 }else{
@@ -236,7 +245,8 @@ int main() {
                 break;
             case 5:
                 //getData()
-                cout << "Result of getData(): " << endl;
+                cout << "Random Operation " << i + 1 << ":" << endl;
+                cout << "Result of getData() attempting to retrieve test data with id of " << ids[randIndex] << ":" << endl;
                 if(table.getData(ids[randIndex]) == ""){
                     cout << "Failed: data with id of " << ids[randIndex] << " is not in the table." << endl;
                 }else{
@@ -245,16 +255,13 @@ int main() {
                 break;
             case 6:
                 //getCount()
+                cout << "Random Operation " << i + 1 << ":" << endl;
                 cout << "Result of getCount(): " << table.getCount() << endl;
                 break;
         }
-
         cout << endl;
-
         choice = rand() % CHOICES + 1;
     }
-    cout << endl;
-
     cout << "Testing complete." << endl;
     return 0;
 }
