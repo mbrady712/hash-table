@@ -159,5 +159,31 @@ int main() {
 
     cout << endl;
 
+    //Test removeEntry() on empty table
+
+    //Empty the table
+
+    cout << "Emptying table..." << endl;
+
+    for (int i = 0; i < testdatasize; i++) {
+        table.removeEntry(ids[i]);
+    }
+
+    cout << "Printing table to demonstrate that it is empty: " << endl;
+
+    table.printTable();
+
+    cout << endl;
+
+    cout << "Attempting to remove each test data on empty table: " << endl;
+
+    for (int i = 0; i < testdatasize; i++) {
+        if (table.removeEntry(ids[i])) {
+            cout << "Success: " << ids[i] << " removed" << endl;
+        }else{
+            cout << "Failed: " << ids[i] << " was not removed" << endl;
+        }
+    }
+
     return 0;
 }
