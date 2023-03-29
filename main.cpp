@@ -153,7 +153,7 @@ int main() {
 
     cout << endl;
 
-    cout << "Result of printTable(): " << endl;
+    cout << "Result of printTable() after deletions: " << endl;
 
     table.printTable();
 
@@ -185,5 +185,76 @@ int main() {
         }
     }
 
+    cout << endl;
+
+    /*
+    The Following code tests random operations. insertEntry() and removeEntry() are called twice as often as getCount() and getData() 
+    because they change the contents of the table and should be tested more rigorously.
+    */
+
+    cout << "Testing random operations" << endl;
+
+    int randIndex = 0;
+    cout << "Filling table with random selections from test data..." << endl;
+    for(int i = 0; i < testdatasize; i++){
+        //Create a random index number to select a random test data
+        randIndex = rand() % (testdatasize - 1);
+        table.insertEntry(ids[randIndex], &strs[randIndex]);
+    }
+
+    cout << "Result of printTable() with table randomly filled: " << endl;
+    table.printTable();
+    cout << endl;
+    
+    int choice = rand() % CHOICES + 1;
+    for (int i = 0; i < RANDOM_RUNS; i++) {
+        randIndex = rand() % (testdatasize - 1);
+        switch (choice) {
+            case 1:
+            case 2:
+                //insertEntry()
+                cout << "Result of insertEntry(): " << endl;
+                if (table.insertEntry(ids[randIndex], &strs[randIndex])) {
+                    cout << "Success: " << ids[randIndex] << "entered into table" << endl;
+                } else {
+                    cout << "Failed: " << ids[randIndex] << " not etnered" << endl;
+                }
+                cout << "Observe the change with result of printTable(): " << endl;
+                table.printTable();
+                break;
+            case 3:
+            case 4:
+                //removeEntry()
+                cout << "Result of removeEntry(): " << endl;
+                if (table.removeEntry(ids[randIndex])) {
+                    cout << "Success: " << ids[randIndex] << " removed" << endl;
+                }else{
+                    cout << "Failed: " << ids[randIndex] << " was not removed" << endl;
+                }
+                cout << "Observe the change with result of printTable(): " << endl;
+                table.printTable();
+                break;
+            case 5:
+                //getData()
+                cout << "Result of getData(): " << endl;
+                if(table.getData(ids[randIndex]) == ""){
+                    cout << "Failed: data with id of " << ids[randIndex] << " is not in the table." << endl;
+                }else{
+                    cout << "Success: data with id of " << ids[randIndex] << " found and has string " << table.getData(ids[randIndex]) << endl;
+                }
+                break;
+            case 6:
+                //getCount()
+                cout << "Result of getCount(): " << table.getCount() << endl;
+                break;
+        }
+
+        cout << endl;
+
+        choice = rand() % CHOICES + 1;
+    }
+    cout << endl;
+
+    cout << "Testing complete." << endl;
     return 0;
 }

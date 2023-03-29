@@ -17,6 +17,8 @@ Purpose: This program creates a hash table that implements separate chaining.
 #define MAXID 100
 #define BASE 5
 #define OFFSET 20
+#define CHOICES 6
+#define RANDOM_RUNS 10
 
 using std::cout;
 using std::endl;
