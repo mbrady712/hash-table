@@ -99,5 +99,65 @@ int main() {
     }
     cout << endl;
 
+    //Remove the first, middle, and last three of the test data ids and one non-existent id
+
+    //First
+
+    cout << "Deleting first test data, which has id of " << ids[0] << endl;
+    if (table.removeEntry(ids[0])) {
+        cout << "Success: " << ids[0] << " removed" << endl;
+    } else {
+        cout << "Failed: " << ids[0] << " was not removed" << endl;
+    }
+
+    //Middle
+
+    cout << "Deleting middle test data, which has id of " << ids[(int) (testdatasize - 1) / 2] << endl;
+    if (table.removeEntry(ids[(int) (testdatasize - 1) / 2])) {
+        cout << "Success: " << ids[(int) (testdatasize - 1) / 2] << " removed" << endl;
+    } else {
+        cout << "Failed: " << ids[(int) (testdatasize - 1) / 2] << " was not removed" << endl;
+    }
+
+    //Last three
+
+    cout << "Deleting third-to-last test data, which has id of " << ids[testdatasize - 3] << endl;
+    if (table.removeEntry(ids[testdatasize - 3])) {
+        cout << "Success: " << ids[testdatasize - 3] << " removed" << endl;
+    } else {
+        cout << "Failed: " << ids[testdatasize - 3] << " was not removed" << endl;
+    }
+
+    cout << "Deleting second-to-last test data (known duplicate), which has id of " << ids[testdatasize - 2] << endl;
+    if (table.removeEntry(ids[testdatasize - 2])) {
+        cout << "Success: " << ids[testdatasize - 2] << " removed" << endl;
+    } else {
+        cout << "Failed: " << ids[testdatasize - 2] << " was not removed" << endl;
+    }
+
+    cout << "Deleting last test data (known bad), which has id of " << ids[testdatasize - 1] << endl;
+    if (table.removeEntry(ids[testdatasize - 1])) {
+        cout << "Success: " << ids[testdatasize - 1] << " removed" << endl;
+    } else {
+        cout << "Failed: " << ids[testdatasize - 1] << " was not removed" << endl;
+    }
+
+    //Non-existent test data
+
+    cout << "Deleting non-existent test data, which has id of " << MAXID + 1 << endl;
+    if (table.removeEntry(MAXID + 1)) {
+        cout << "Success: " << MAXID + 1 << " removed" << endl;
+    } else {
+        cout << "Failed: " << MAXID + 1 << " was not removed" << endl;
+    }
+
+    cout << endl;
+
+    cout << "Result of printTable(): " << endl;
+
+    table.printTable();
+
+    cout << endl;
+
     return 0;
 }
