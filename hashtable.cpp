@@ -26,7 +26,10 @@ bool HashTable::insertEntry(int id, string* data){
 
 string HashTable::getData(int id){
     Data data;
-    hashtable[hash(id)].getNode(id, &data);
+    data.data = "";
+    if(id > 0){
+        hashtable[hash(id)].getNode(id, &data);
+    }
     return data.data;
 }
 

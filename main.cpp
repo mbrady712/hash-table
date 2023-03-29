@@ -87,5 +87,11 @@ int main() {
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
 
+    //Test getData() on every element when table is full
+    cout << "Getting test data from table (" << testdatasize << " entries)..."<< endl;
+    for (int i = 0; i < testdatasize; i++) {
+        cout << "Data with id of " << ids[i] << " has string " << table.getData(ids[i]) << endl;
+    }
+
     return 0;
 }
