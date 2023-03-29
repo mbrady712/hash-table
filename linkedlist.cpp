@@ -72,20 +72,22 @@ void LinkedList::printList(bool backward){
     int count = 1;
     Node *current = head; 
     if(head == NULL){//If list is empty
-        std::cout << "\tList is empty" << std::endl;
+        std::cout << "EMPTY" << std::endl;
     }else if(!backward){
         while(current){
-            std::cout << "\t" << count << ": " << current->data.id << " : " << current->data.data << std::endl;
+            std::cout << count << ": " << "{id: " << current->data.id << ", string: " << current->data.data;
             current = current->next;
             count++;
+            std::cout << "} ";
         }
         std::cout << std::endl;
     }else{
         current = getTail(current);
         while(current){
-            std::cout << "\t" << count << ": " << current->data.id << " : " << current->data.data << std::endl;
+            std::cout << count << ": " << "{id: " << current->data.id << ", string: " << current->data.data;
             current = current->prev;
             count++;
+            std::cout << "} ";
         }
         std::cout << std::endl;
     }
