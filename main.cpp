@@ -90,8 +90,14 @@ int main() {
     //Test getData() on every element when table is full
     cout << "Getting test data from table (" << testdatasize << " entries)..."<< endl;
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Data with id of " << ids[i] << " has string " << table.getData(ids[i]) << endl;
+        string temp = table.getData(ids[i]);
+        if(temp == ""){
+            cout << "Failed: data with id of " << ids[i] << " is not in the table." << endl;
+        }else{
+            cout << "Success: data with id of " << ids[i] << " found and has string " << temp << endl;
+        }
     }
+    cout << endl;
 
     return 0;
 }
