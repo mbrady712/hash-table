@@ -55,21 +55,37 @@ int main() {
     
     // show it is empty by calling getCount and printTable
 
-    std::cout << "Table starts empty." << std::endl;
+    cout << "Table starts empty." << endl;
 
-    std::cout << "Result of getCount(): " << table.getCount() << std::endl;
+    cout << "Result of getCount(): " << table.getCount() << endl;
 
-    std::cout << "Result of printTable(): " << std::endl;
+    cout << "Result of printTable(): " << endl;
 
     table.printTable();
 
+    cout << endl;
+
     // try and put ALL the test data into the table and show what happens
+
+    cout << "Filling table with all of test data (" << testdatasize << " entries)..."<< endl;
+    for (int i = 0; i < testdatasize; i++) {
+        cout << "Adding data: " << ids[i] << " : " << strs[i] << endl;
+        table.insertEntry(ids[i], &strs[i]);
+    }
+
+    cout << endl;
+
+    cout << "Result of getCount(): " << table.getCount() << endl;
+
+    cout << "Result of printTable(): " << endl;
+
+    table.printTable();
+
+    cout << endl;
 
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
 
-
-    
     return 0;
 }
